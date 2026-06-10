@@ -10,6 +10,7 @@ const APPS = [
     price: '$8.99',
     color: '#2e3a36',
     initial: 'C',
+    iconSrc: 'assets/clearfit-icon.png',
     version: '1.0',
     features: [
       { title: 'Fast logging', body: 'Start a workout and record sets in a tap or two. Built for the gym floor, not a spreadsheet.' },

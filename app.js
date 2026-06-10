@@ -198,7 +198,9 @@
           <div class="card" style="padding:0;overflow:hidden">
             <div class="grid app-card-grid" style="grid-template-columns:320px 1fr auto;align-items:stretch">
               <div style="background:linear-gradient(160deg, ${app.color}, ${app.color}88);display:grid;place-items:center;padding:40px;position:relative;overflow:hidden">
-                ${appTile(app, 110)}
+                ${app.iconSrc
+                  ? `<img src="${esc(app.iconSrc)}" alt="${esc(app.name)} app icon" width="120" height="120" style="width:120px;height:120px;border-radius:26px;filter:drop-shadow(0 10px 30px rgba(0,0,0,0.45));position:relative">`
+                  : appTile(app, 110)}
                 <div style="position:absolute;inset:0;background-image:repeating-linear-gradient(135deg, rgba(255,255,255,0.04) 0, rgba(255,255,255,0.04) 1px, transparent 1px, transparent 11px);pointer-events:none"></div>
               </div>
               <div style="padding:32px">
