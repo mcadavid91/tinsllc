@@ -1,5 +1,5 @@
 // TINS Studio — vanilla JS, hash-routed single-page site.
-// Three pages: About (landing), Apps, Contact.
+// Pages: About (landing), Apps, Support (help + privacy policy), Contact.
 
 (function () {
   'use strict';
@@ -62,6 +62,7 @@
   const ROUTES = [
     { id: 'about',   label: 'About',      path: '#/' },
     { id: 'apps',    label: 'Apps',       path: '#/apps' },
+    { id: 'support', label: 'Support',    path: '#/support' },
     { id: 'contact', label: 'Contact Us', path: '#/contact' },
   ];
 
@@ -86,6 +87,7 @@
           <h5>TINS Studio</h5>
           <a href="#/">About</a>
           <a href="#/apps">Apps</a>
+          <a href="#/support">Support</a>
           <a href="#/contact">Contact Us</a>
         </div>
         <div>
@@ -98,7 +100,7 @@
         </div>
       </div>
       <div class="footer-bot">
-        <span>&copy; 2026 TINS Studio LLC · tinsllc.com</span>
+        <span>&copy; 2026 TINS Studio LLC · tinsllc.com · <a href="#/support#privacy" style="text-decoration:underline">Privacy Policy</a></span>
         <span class="mono">There Is No Subscription</span>
       </div>
     </div></div></footer>`;
@@ -228,6 +230,123 @@
   }
 
   /* ----------------------------------------------------------
+     Support page (help + privacy policy)
+  ---------------------------------------------------------- */
+  const PRIVACY_EFFECTIVE = 'June 10, 2026';
+
+  function supportHTML() {
+    const help = [
+      { ic: 'mail',  t: 'Email us',       d: 'The fastest way to get help. A real person reads every message.', extra: '<a href="mailto:hello@tinsllc.com" class="btn btn-soft btn-sm" style="margin-top:14px">hello@tinsllc.com</a>' },
+      { ic: 'clock', t: 'Response time',  d: 'We usually reply within one or two business days, Mon–Fri · 9a–6p ET.', extra: '' },
+      { ic: 'lock',  t: 'No account needed', d: 'Our apps don’t require a login, so there are no passwords to reset and no account to recover.', extra: '' },
+    ];
+    const faqs = [
+      { q: 'How do I get a refund?', a: 'Purchases are handled by the Apple App Store. Refund requests are managed by Apple through reportaproblem.apple.com, subject to Apple’s policies. If something isn’t working, email us first — we’re happy to help.' },
+      { q: 'Will my app keep working without a subscription?', a: 'Yes. You pay once and the app is yours. There is no subscription, and updates are free for the life of the product.' },
+      { q: 'Where is my data stored?', a: 'On your device. Our apps don’t require an account, and we don’t upload, sync, or sell your personal data. See our Privacy Policy below.' },
+      { q: 'I found a bug or have a feature idea.', a: 'We’d love to hear it. Email us with as much detail as you can — what you expected, what happened, and your device and app version.' },
+    ];
+    return `<div class="page"><div class="container">
+      <div style="max-width:720px;margin-bottom:48px">
+        ${eyebrow('Support')}
+        <h1 style="margin-top:18px">Need a hand? We’re here.</h1>
+        <p style="font-size:17px;margin-top:18px">No tickets, no phone trees, no chatbots. Email a real person and we’ll sort it out.</p>
+      </div>
+
+      <div class="grid grid-3" style="gap:24px">
+        ${help.map((c) => `<div class="card">
+          <div style="width:36px;height:36px;border-radius:10px;background:var(--bg-2);border:1px solid var(--line);display:grid;place-items:center">${icon(c.ic, 16)}</div>
+          <h3 style="margin-top:16px;font-size:18px">${c.t}</h3>
+          <p style="margin-top:8px;font-size:14px">${c.d}</p>
+          ${c.extra}
+        </div>`).join('')}
+      </div>
+
+      <section class="section" style="padding:72px 0 0">
+        ${eyebrow('Common questions')}
+        <div class="col gap-md" style="margin-top:24px">
+          ${faqs.map((f) => `<div class="card">
+            <h3 style="font-size:18px">${esc(f.q)}</h3>
+            <p style="margin-top:8px;font-size:15px">${f.a}</p>
+          </div>`).join('')}
+        </div>
+      </section>
+
+      <section class="section" id="privacy" style="margin-top:72px;border-top:1px solid var(--line)">
+        ${eyebrow('Legal')}
+        <h2 style="margin-top:16px">Privacy Policy</h2>
+        <p class="mono muted" style="font-size:12px;margin-top:10px;letter-spacing:0.06em">Effective ${PRIVACY_EFFECTIVE} · TINS Studio LLC</p>
+
+        <div class="card" style="padding:36px;margin-top:28px;max-width:820px">
+          <div class="col gap-md" style="font-size:15px;line-height:1.6">
+            <p>TINS Studio LLC (“TINS Studio,” “we,” “us,” or “our”) builds software you pay for once and own forever. We designed our apps and this website to work without collecting your personal data. This Privacy Policy explains what that means and describes the limited circumstances in which information may be involved.</p>
+
+            <div>
+              <h3 style="font-size:18px">1. The short version</h3>
+              <p style="margin-top:8px">We do not collect, sell, rent, or share your personal information. Our apps do not require an account or login, and the data you create in them stays on your device. This website does not use tracking cookies, advertising, or analytics that identify you.</p>
+            </div>
+
+            <div>
+              <h3 style="font-size:18px">2. Information we do not collect</h3>
+              <p style="margin-top:8px">We do not ask you to create an account, and we do not gather names, email addresses, contacts, location, advertising identifiers, or usage profiles through our apps. We do not build advertising or marketing profiles, and we do not sell or rent personal information to anyone — there is no mailing list to buy.</p>
+            </div>
+
+            <div>
+              <h3 style="font-size:18px">3. Data created in our apps</h3>
+              <p style="margin-top:8px">Information you enter into or generate within our apps is stored locally on your device, and — if you have enabled Apple’s iCloud backup or device sync — within your own Apple account under Apple’s terms. We do not have access to this data. Where an app reads health or fitness information (for example, ClearFit reading from Apple Health), that access is granted by you through Apple’s permission system, the data is processed on your device, and it is not transmitted to us.</p>
+            </div>
+
+            <div>
+              <h3 style="font-size:18px">4. Purchases and the App Store</h3>
+              <p style="margin-top:8px">Our apps are sold through the Apple App Store. When you buy an app, Apple processes the transaction and your payment details — we never see or store your payment information. Apple may provide us with aggregated, non-identifying sales and download statistics. Your use of the App Store is governed by Apple’s own privacy policy.</p>
+            </div>
+
+            <div>
+              <h3 style="font-size:18px">5. This website</h3>
+              <p style="margin-top:8px">tinsllc.com is a static informational site. It does not set tracking or advertising cookies and does not run identifying analytics. The site loads web fonts from Google Fonts; when it does, your browser contacts Google’s servers, which may receive your IP address as part of delivering those fonts, subject to Google’s privacy policy. The contact form on this site is a convenience feature; if you choose to email us, we receive only what you put in your message.</p>
+            </div>
+
+            <div>
+              <h3 style="font-size:18px">6. When you contact us</h3>
+              <p style="margin-top:8px">If you email us at hello@tinsllc.com or otherwise reach out, we receive your email address and the contents of your message. We use this only to respond to and support you, and we keep it no longer than reasonably necessary for that purpose. We do not add you to marketing lists.</p>
+            </div>
+
+            <div>
+              <h3 style="font-size:18px">7. How information is shared</h3>
+              <p style="margin-top:8px">We do not sell or share personal information for advertising. We may disclose information only where required by law, to comply with a valid legal request, to protect our rights, or to a service provider (such as Apple or our email provider) strictly as needed to operate. We are not in the business of trading your data.</p>
+            </div>
+
+            <div>
+              <h3 style="font-size:18px">8. Children’s privacy</h3>
+              <p style="margin-top:8px">Our products are not directed to children under 13, and we do not knowingly collect personal information from children. If you believe a child has provided us personal information, contact us and we will delete it.</p>
+            </div>
+
+            <div>
+              <h3 style="font-size:18px">9. Your rights</h3>
+              <p style="margin-top:8px">Because we generally do not hold your personal data, there is usually nothing for us to access, correct, or delete. Where we do hold information you sent us (such as an email), you may contact us to request access to or deletion of it. Depending on where you live, you may have additional rights under laws such as the GDPR or CCPA/CPRA; we honor applicable requests and will never discriminate against you for exercising them.</p>
+            </div>
+
+            <div>
+              <h3 style="font-size:18px">10. Security</h3>
+              <p style="margin-top:8px">We take reasonable measures to protect any information we do hold. However, no method of transmission or storage is completely secure, and we cannot guarantee absolute security.</p>
+            </div>
+
+            <div>
+              <h3 style="font-size:18px">11. Changes to this policy</h3>
+              <p style="margin-top:8px">We may update this Privacy Policy from time to time. When we do, we will revise the “Effective” date above. Material changes will be reflected on this page, and your continued use of our apps or website after an update means you accept the revised policy.</p>
+            </div>
+
+            <div>
+              <h3 style="font-size:18px">12. Contact us</h3>
+              <p style="margin-top:8px">Questions about this policy or your privacy? Email <a href="mailto:hello@tinsllc.com" style="text-decoration:underline">hello@tinsllc.com</a> or write to TINS Studio LLC, United States. A real person will respond.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div></div>`;
+  }
+
+  /* ----------------------------------------------------------
      Contact page
   ---------------------------------------------------------- */
   let contactReason = 'support';
@@ -341,9 +460,15 @@
      Router
   ---------------------------------------------------------- */
   function parseRoute() {
-    const h = window.location.hash.replace(/^#\/?/, '');
-    if (h === 'apps' || h === 'contact') return h;
+    // A second '#' marks an in-page anchor, e.g. "#/support#privacy".
+    const h = window.location.hash.replace(/^#\/?/, '').split('#')[0];
+    if (h === 'apps' || h === 'contact' || h === 'support') return h;
     return 'about';
+  }
+
+  function parseAnchor() {
+    const parts = window.location.hash.split('#'); // ['', '/support', 'privacy']
+    return parts.length > 2 ? parts[2] : '';
   }
 
   const root = document.getElementById('root');
@@ -357,9 +482,14 @@
     navHost.innerHTML = navHTML(route);
     footerHost.innerHTML = footerHTML();
     if (route === 'apps') main.innerHTML = appsHTML();
+    else if (route === 'support') main.innerHTML = supportHTML();
     else if (route === 'contact') { main.innerHTML = contactHTML(); attachContact(main); }
     else main.innerHTML = aboutHTML();
-    window.scrollTo({ top: 0 });
+
+    const anchor = parseAnchor();
+    const target = anchor && document.getElementById(anchor);
+    if (target) target.scrollIntoView({ block: 'start' });
+    else window.scrollTo({ top: 0 });
   }
 
   window.addEventListener('hashchange', render);
