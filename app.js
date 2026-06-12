@@ -44,18 +44,6 @@
     return `<span class="eyebrow-line">${esc(text)}</span>`;
   }
 
-  // Toast
-  let toastTimer = null;
-  function showToast(text) {
-    document.querySelectorAll('.toast').forEach((n) => n.remove());
-    const el = document.createElement('div');
-    el.className = 'toast';
-    el.textContent = text;
-    document.body.appendChild(el);
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => el.remove(), 2400);
-  }
-
   /* ----------------------------------------------------------
      Nav + Footer
   ---------------------------------------------------------- */
@@ -351,111 +339,33 @@
   /* ----------------------------------------------------------
      Contact page
   ---------------------------------------------------------- */
-  let contactReason = 'support';
-
   function contactHTML() {
-    const details = [
-      { ic: 'mail',  label: 'Email',  value: 'hello@tinsllc.com' },
-      { ic: 'globe', label: 'Domain', value: 'tinsllc.com' },
-      { ic: 'clock', label: 'Hours',  value: 'Mon–Fri · 9a–6p ET' },
-    ];
-    const reasons = [
-      { id: 'support', label: 'App support' },
-      { id: 'press',   label: 'Press' },
-      { id: 'biz',     label: 'Business' },
-      { id: 'other',   label: 'Something else' },
-    ];
     return `<div class="page"><div class="container">
-      <div class="grid contact-split" style="grid-template-columns:1fr 1.1fr;gap:64px;align-items:flex-start">
-        <div>
-          ${eyebrow('Get in touch')}
-          <h1 style="margin-top:18px">Hello.</h1>
-          <p style="font-size:17px;margin-top:16px;max-width:440px">A real person reads every message. We usually reply within one or two business days.</p>
+      <div style="max-width:680px">
+        ${eyebrow('Get in touch')}
+        <h1 style="margin-top:18px">Hello.</h1>
+        <p style="font-size:17px;margin-top:18px">We're a small, privacy-focused studio — so there's no contact form here quietly collecting your details. If you'd like to reach out, just send us an email. A real person reads every message, and we usually reply within one or two business days.</p>
 
-          <div class="col gap-md" style="margin-top:36px">
-            ${details.map((c) => `<div class="row" style="gap:14px">
-              <div style="width:36px;height:36px;border-radius:10px;background:var(--bg-2);border:1px solid var(--line);display:grid;place-items:center">${icon(c.ic, 16)}</div>
-              <div>
-                <div class="mono muted" style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase">${c.label}</div>
-                <div style="font-size:15px;margin-top:2px">${c.value}</div>
-              </div>
-            </div>`).join('')}
+        <div class="card" style="margin-top:36px;padding:32px;display:flex;gap:20px;align-items:center;flex-wrap:wrap">
+          <div style="width:52px;height:52px;border-radius:14px;background:var(--bg-2);border:1px solid var(--line);display:grid;place-items:center">${icon('mail', 22)}</div>
+          <div style="flex:1;min-width:200px">
+            <div class="mono muted" style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase">Email us</div>
+            <div style="font-family:var(--font-display);font-size:24px;margin-top:4px">hello@tinsllc.com</div>
+          </div>
+          <a href="mailto:hello@tinsllc.com" class="btn btn-primary">Send an email ${icon('arrow-right', 13)}</a>
+        </div>
+
+        <div class="row" style="gap:14px;margin-top:24px">
+          <div style="width:36px;height:36px;border-radius:10px;background:var(--bg-2);border:1px solid var(--line);display:grid;place-items:center">${icon('clock', 16)}</div>
+          <div>
+            <div class="mono muted" style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase">Hours</div>
+            <div style="font-size:15px;margin-top:2px">Mon–Fri · 9a–6p ET</div>
           </div>
         </div>
 
-        <div class="card" id="contact-card" style="padding:32px">
-          <form id="contact-form">
-            <h3>Send us a message</h3>
-            <p class="muted" style="font-size:13px;margin-top:4px">All fields required, except the things we don't ask for.</p>
-            <div class="grid grid-2" style="margin-top:22px;gap:14px">
-              <div class="field" style="margin:0"><label>Your name</label><input name="name" placeholder="Mira K."></div>
-              <div class="field" style="margin:0"><label>Email</label><input name="email" type="email" placeholder="you@example.com"></div>
-            </div>
-            <div class="field" style="display:flex;flex-direction:column;gap:6px;margin-top:14px">
-              <label>I'm writing about</label>
-              <div class="row" style="gap:6px;flex-wrap:wrap">
-                ${reasons.map((r) => `<button type="button" class="btn btn-sm reason-chip" data-reason="${r.id}"
-                  style="background:${contactReason === r.id ? 'var(--accent)' : 'var(--bg-2)'};color:${contactReason === r.id ? 'var(--accent-ink)' : 'var(--fg-2)'};border:1px solid ${contactReason === r.id ? 'var(--accent)' : 'var(--line)'}">${r.label}</button>`).join('')}
-              </div>
-            </div>
-            <div class="field" style="display:flex;flex-direction:column;gap:6px;margin-top:14px">
-              <label>Your message</label>
-              <textarea name="message" placeholder="Tell us what you're thinking..."></textarea>
-            </div>
-            <div class="row" style="justify-content:space-between;margin-top:24px">
-              <span class="muted mono" style="font-size:11px;letter-spacing:0.06em">${icon('lock', 12, 1.6, 'vertical-align:-1px;margin-right:6px')}We will never share your email. Period.</span>
-              <button type="submit" class="btn btn-primary" disabled>Send message ${icon('arrow-right', 13)}</button>
-            </div>
-          </form>
-        </div>
+        <p class="muted mono" style="font-size:11px;letter-spacing:0.06em;margin-top:28px">${icon('lock', 12, 1.6, 'vertical-align:-1px;margin-right:6px')}No form, no tracking — we only ever see what you choose to put in your email.</p>
       </div>
     </div></div>`;
-  }
-
-  function contactSuccessHTML(name, email) {
-    return `<div style="text-align:center;padding:24px 0">
-      <div style="width:56px;height:56px;border-radius:50%;background:color-mix(in srgb, var(--status-shipped) 16%, transparent);display:grid;place-items:center;margin:0 auto 18px;color:var(--status-shipped)">${icon('check', 24, 2)}</div>
-      <h3>Message sent.</h3>
-      <p style="margin-top:10px;max-width:380px;margin-inline:auto">Thanks, ${esc(name || 'friend')}. We've got your note and will be in touch at ${esc(email)}.</p>
-      <button class="btn btn-ghost" data-action="send-another" style="margin-top:22px">Send another</button>
-    </div>`;
-  }
-
-  function attachContact(main) {
-    const form = main.querySelector('#contact-form');
-    if (!form) return;
-    const nameEl = form.name;
-    const emailEl = form.email;
-    const msgEl = form.message;
-    const submitEl = form.querySelector('button[type="submit"]');
-    const valid = () => nameEl.value.trim() && /.+@.+\..+/.test(emailEl.value) && msgEl.value.trim().length > 8;
-    const check = () => { submitEl.disabled = !valid(); };
-    [nameEl, emailEl, msgEl].forEach((el) => el.addEventListener('input', check));
-
-    main.querySelectorAll('.reason-chip').forEach((chip) =>
-      chip.addEventListener('click', () => {
-        contactReason = chip.dataset.reason;
-        main.querySelectorAll('.reason-chip').forEach((c) => {
-          const on = c.dataset.reason === contactReason;
-          c.style.background = on ? 'var(--accent)' : 'var(--bg-2)';
-          c.style.color = on ? 'var(--accent-ink)' : 'var(--fg-2)';
-          c.style.border = '1px solid ' + (on ? 'var(--accent)' : 'var(--line)');
-        });
-      }));
-
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      if (!valid()) return;
-      const card = main.querySelector('#contact-card');
-      card.innerHTML = contactSuccessHTML(nameEl.value.trim(), emailEl.value.trim());
-      showToast('Message sent — we usually reply within 1–2 business days.');
-      card.querySelector('[data-action="send-another"]').addEventListener('click', () => {
-        contactReason = 'support';
-        const m = document.getElementById('main');
-        m.innerHTML = contactHTML();
-        attachContact(m);
-      });
-    });
   }
 
   /* ----------------------------------------------------------
@@ -485,7 +395,7 @@
     footerHost.innerHTML = footerHTML();
     if (route === 'apps') main.innerHTML = appsHTML();
     else if (route === 'support') main.innerHTML = supportHTML();
-    else if (route === 'contact') { main.innerHTML = contactHTML(); attachContact(main); }
+    else if (route === 'contact') main.innerHTML = contactHTML();
     else main.innerHTML = aboutHTML();
 
     const anchor = parseAnchor();
