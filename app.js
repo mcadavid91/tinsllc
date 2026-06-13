@@ -356,6 +356,15 @@
           <a href="mailto:hello@tinsllc.com" class="btn btn-primary">Send an email ${icon('arrow-right', 13)}</a>
         </div>
 
+        <div class="card" style="margin-top:16px;padding:32px;display:flex;gap:20px;align-items:center;flex-wrap:wrap">
+          <div style="width:52px;height:52px;border-radius:14px;background:var(--bg-2);border:1px solid var(--line);display:grid;place-items:center">${icon('mail', 22)}</div>
+          <div style="flex:1;min-width:200px">
+            <div class="mono muted" style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase">Report a bug</div>
+            <div style="font-family:var(--font-display);font-size:24px;margin-top:4px">bugs@tinsllc.com</div>
+          </div>
+          <a href="mailto:bugs@tinsllc.com" class="btn btn-primary">Report a bug ${icon('arrow-right', 13)}</a>
+        </div>
+
         <div class="row" style="gap:14px;margin-top:24px">
           <div style="width:36px;height:36px;border-radius:10px;background:var(--bg-2);border:1px solid var(--line);display:grid;place-items:center">${icon('clock', 16)}</div>
           <div>
