@@ -86,6 +86,7 @@
         <div>
           <h5>Connect</h5>
           <a href="mailto:hello@tinsllc.com">${icon('mail', 14, 1.6, 'vertical-align:-2px;margin-right:6px')}hello@tinsllc.com</a>
+          <a href="mailto:bugs@tinsllc.com">${icon('mail', 14, 1.6, 'vertical-align:-2px;margin-right:6px')}bugs@tinsllc.com</a>
         </div>
       </div>
       <div class="footer-bot">
