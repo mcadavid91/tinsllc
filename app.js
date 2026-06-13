@@ -294,7 +294,7 @@
 
             <div>
               <h3 style="font-size:18px">5. This website</h3>
-              <p style="margin-top:8px">tinsllc.com is a static informational site. It does not set tracking or advertising cookies and does not run identifying analytics. The site loads web fonts from Google Fonts; when it does, your browser contacts Google’s servers, which may receive your IP address as part of delivering those fonts, subject to Google’s privacy policy. The contact form on this site is a convenience feature; if you choose to email us, we receive only what you put in your message.</p>
+              <p style="margin-top:8px">tinsllc.com is a static informational site. It does not set tracking or advertising cookies and does not run identifying analytics. The site loads web fonts from Google Fonts; when it does, your browser contacts Google’s servers, which may receive your IP address as part of delivering those fonts, subject to Google’s privacy policy. This site has no contact form or sign-up fields; if you choose to email us, we receive only what you put in your message.</p>
             </div>
 
             <div>
