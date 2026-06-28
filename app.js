@@ -81,7 +81,7 @@
         <div>
           <h5>Apps</h5>
           <a href="#/apps">ClearFit</a>
-          <a href="#/apps">CalcPro</a>
+          <a href="#/apps">TVM Financial Calc</a>
         </div>
         <div>
           <h5>Connect</h5>

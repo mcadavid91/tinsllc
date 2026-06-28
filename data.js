@@ -21,9 +21,9 @@ const APPS = [
   },
   {
     id: 'calcpro',
-    name: 'CalcPro',
+    name: 'TVM Financial Calc',
     tagline: 'Everyday math to financial modeling — one calculator.',
-    description: 'CalcPro goes from your basic calculator functions all the way to the Time Value of Money calculations you’d otherwise need an expensive financial calculator for — and everything in between. Loans, rates, payments, present and future value, and more, all in one fast, clean app you own outright.',
+    description: 'TVM Financial Calc goes from your basic calculator functions all the way to the Time Value of Money calculations you’d otherwise need an expensive financial calculator for — and everything in between. Loans, rates, payments, present and future value, and more, all in one fast, clean app you own outright.',
     platform: 'iOS',
     price: '$4.99',
     color: '#33373d',
