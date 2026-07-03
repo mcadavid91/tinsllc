@@ -3,9 +3,9 @@
 const APPS = [
   {
     id: 'clearfit',
-    name: 'ClearFit',
+    name: 'ClearFitness',
     tagline: 'Know your cardiovascular health — every number auditable.',
-    description: 'ClearFit turns your Apple Health data into a clear picture of your cardiovascular health. Its headline Cardio Age score distills VO₂ Max, resting heart rate, and HRV into a single age-equivalent — fully auditable, so you can tap any number to see how it was computed. Workout details break down each session, and the Trends tab charts your progress over time.',
+    description: 'ClearFitness turns your Apple Health data into a clear picture of your cardiovascular health. Its headline Cardio Age score distills VO₂ Max, resting heart rate, and HRV into a single age-equivalent — fully auditable, so you can tap any number to see how it was computed. Workout details break down each session, and the Trends tab charts your progress over time.',
     platform: 'iOS',
     price: '$8.99',
     color: '#2e3a36',
@@ -21,15 +21,16 @@ const APPS = [
   },
   {
     id: 'calcpro',
-    name: 'TVM Financial Calc',
+    name: 'TVM Financial Cal',
     tagline: 'Everyday math to financial modeling — one calculator.',
-    description: 'TVM Financial Calc goes from your basic calculator functions all the way to the Time Value of Money calculations you’d otherwise need an expensive financial calculator for — and everything in between. Loans, rates, payments, present and future value, and more, all in one fast, clean app you own outright.',
+    description: 'TVM Financial Cal goes from your basic calculator functions all the way to the Time Value of Money calculations you’d otherwise need an expensive financial calculator for — and everything in between. Loans, rates, payments, present and future value, and more, all in one fast, clean app you own outright.',
     platform: 'iOS',
     price: '$4.99',
     color: '#33373d',
     initial: 'C',
     iconSrc: 'assets/calcpro-icon.png',
     version: '1.0',
+    link: 'https://apps.apple.com/us/app/tvm-financial-cal/id6785133740',
   },
 ];
 

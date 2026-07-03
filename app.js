@@ -80,8 +80,8 @@
         </div>
         <div>
           <h5>Apps</h5>
-          <a href="#/apps">ClearFit</a>
-          <a href="#/apps">TVM Financial Calc</a>
+          <a href="#/apps">ClearFitness</a>
+          <a href="#/apps">TVM Financial Cal</a>
         </div>
         <div>
           <h5>Connect</h5>
@@ -211,7 +211,7 @@
                   <div style="font-family:var(--font-display);font-size:36px;font-weight:500;letter-spacing:-0.03em;margin-top:6px">${esc(app.price)}</div>
                 </div>
                 <div class="col gap-sm" style="width:100%">
-                  <a href="#" class="btn btn-primary" style="justify-content:center">Get ${esc(app.name)}</a>
+                  <a href="${app.link ? esc(app.link) : '#'}"${app.link ? ' target="_blank" rel="noopener"' : ''} class="btn btn-primary" style="justify-content:center">Get ${esc(app.name)}</a>
                   <a href="#/contact" class="btn btn-soft btn-sm" style="justify-content:center">Contact us</a>
                 </div>
               </div>
@@ -285,7 +285,7 @@
 
             <div>
               <h3 style="font-size:18px">3. Data created in our apps</h3>
-              <p style="margin-top:8px">Information you enter into or generate within our apps is stored locally on your device, and — if you have enabled Apple’s iCloud backup or device sync — within your own Apple account under Apple’s terms. We do not have access to this data. Where an app reads health or fitness information (for example, ClearFit reading from Apple Health), that access is granted by you through Apple’s permission system, the data is processed on your device, and it is not transmitted to us.</p>
+              <p style="margin-top:8px">Information you enter into or generate within our apps is stored locally on your device, and — if you have enabled Apple’s iCloud backup or device sync — within your own Apple account under Apple’s terms. We do not have access to this data. Where an app reads health or fitness information (for example, ClearFitness reading from Apple Health), that access is granted by you through Apple’s permission system, the data is processed on your device, and it is not transmitted to us.</p>
             </div>
 
             <div>
