@@ -12,6 +12,7 @@ const APPS = [
     initial: 'C',
     iconSrc: 'assets/clearfit-icon.png',
     version: '1.0',
+    link: 'https://apps.apple.com/us/app/clearfitness/id6786492888',
     features: [
       { title: 'Fast logging', body: 'Start a workout and record sets in a tap or two. Built for the gym floor, not a spreadsheet.' },
       { title: 'Clear progress', body: 'See personal records, volume, and trends at a glance — without drowning in charts.' },
