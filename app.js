@@ -80,6 +80,7 @@
         </div>
         <div>
           <h5>Apps</h5>
+          <a href="#/apps">ClearBaby <span class="dim">· soon</span></a>
           <a href="#/apps">ClearFitness</a>
           <a href="#/apps">TVM Financial Cal</a>
         </div>
@@ -196,7 +197,9 @@
               <div style="padding:32px">
                 <div class="row" style="gap:10px;margin-bottom:8px">
                   <span class="mono muted" style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase">№${String(i + 1).padStart(2, '0')}</span>
-                  <span class="mono muted" style="font-size:11px;letter-spacing:0.06em">v${esc(app.version)}</span>
+                  ${app.comingSoon
+                    ? `<span class="badge" data-status="planned"><span class="dot"></span>Coming soon</span>`
+                    : `<span class="mono muted" style="font-size:11px;letter-spacing:0.06em">v${esc(app.version)}</span>`}
                 </div>
                 <h2 style="font-size:30px;margin-bottom:8px">${esc(app.name)}</h2>
                 <p style="font-size:16px;margin-bottom:14px;color:var(--fg)">${esc(app.tagline)}</p>
@@ -211,7 +214,9 @@
                   <div style="font-family:var(--font-display);font-size:36px;font-weight:500;letter-spacing:-0.03em;margin-top:6px">${esc(app.price)}</div>
                 </div>
                 <div class="col gap-sm" style="width:100%">
-                  <a href="${app.link ? esc(app.link) : '#'}"${app.link ? ' target="_blank" rel="noopener"' : ''} class="btn btn-primary" style="justify-content:center">Get ${esc(app.name)}</a>
+                  ${app.comingSoon
+                    ? `<button type="button" class="btn btn-primary" style="justify-content:center" disabled>Coming Soon</button>`
+                    : `<a href="${app.link ? esc(app.link) : '#'}"${app.link ? ' target="_blank" rel="noopener"' : ''} class="btn btn-primary" style="justify-content:center">Get ${esc(app.name)}</a>`}
                   <a href="#/contact" class="btn btn-soft btn-sm" style="justify-content:center">Contact us</a>
                 </div>
               </div>

@@ -2,6 +2,20 @@
 
 const APPS = [
   {
+    id: 'clearbaby',
+    name: 'ClearBaby',
+    tagline: 'Feeds, sleep, diapers — your baby’s whole day at a glance.',
+    description: 'ClearBaby is a private baby log for iPhone and iPad. Log feeds, sleep, diapers, and play in a tap, and see the whole day laid out at a glance. Invite your partner with an iCloud link and you’ll both see every entry as it happens, even on different Apple IDs. Trends chart night sleep and daily patterns over time, and reminders follow the intervals you set. No accounts, no ads, no tracking — just a clear record of your baby’s day.',
+    platform: 'iOS',
+    price: '$10.99',
+    color: '#3a3542',
+    initial: 'C',
+    iconSrc: 'assets/clearbaby-icon.png',
+    version: '1.0',
+    comingSoon: true,
+    link: null,
+  },
+  {
     id: 'clearfit',
     name: 'ClearFitness',
     tagline: 'Know your cardiovascular health — every number auditable.',
